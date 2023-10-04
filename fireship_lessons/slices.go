@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 func main() {
 	// This declares and defines the array
@@ -16,4 +19,17 @@ func main() {
 	fmt.Println("Classic languages: %v\n", classics)
 	fmt.Println("Modern languages: %v\n", modern)
 	fmt.Println("New languages: %v\n", new)
+
+	allLangs := languages[:]
+	fmt.Println(reflect.TypeOf(allLangs).Kind())
+
+	frameworks := []string{
+		"React", "Vue", "Angular", "Svelte",
+		"Laravel", "Django", "Flask", "Fiber",
+	}
+	jsFrameworks := frameworks[0:4:4]
+	frameworks = append(frameworks, "Metor")
+
+	fmt.Printf("all frameworks: %v\n", frameworks)
+	fmt.Printf("JS frameworks: %v\n", jsFrameworks)
 }
